@@ -1,0 +1,1756 @@
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekonomi SMA - Platform Pembelajaran Interaktif</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5f7c 100%);
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        .app-wrapper {
+            width: 100%;
+            min-height: 100%;
+            overflow-y: auto;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5f7c 100%);
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1.2rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5f7c 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: #1e3a5f;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #718096;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        nav a:hover, nav a.active {
+            color: #1e3a5f;
+            background: #f7fafc;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: white;
+            color: #1e3a5f;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3a5f;
+            transform: translateY(-3px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #1e3a5f;
+            box-shadow: 0 10px 30px rgba(30, 58, 95, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Materials Preview */
+        .materials-preview {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+        }
+
+        .materials-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .material-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .material-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .material-card h4 {
+            color: #1e3a5f;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .material-card p {
+            color: #718096;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5f7c 100%);
+            color: white;
+        }
+
+        .stats-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #5a9fb8;
+        }
+
+        .footer-section p, .footer-section li {
+            color: #cbd5e0;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Page Content Container */
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: white;
+            min-height: 60vh;
+        }
+
+        .page-content h2 {
+            color: #1e3a5f;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        /* Materi Page Styles */
+        .materi-list {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .materi-item {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid #1e3a5f;
+            transition: all 0.3s ease;
+        }
+
+        .materi-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(30, 58, 95, 0.2);
+        }
+
+        .materi-item h3 {
+            color: #1e3a5f;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .materi-item p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .materi-item ul {
+            color: #718096;
+            padding-left: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            background: #1e3a5f;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #2c5f7c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .question {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .question h3 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option {
+            padding: 1rem 1.5rem;
+            background: #edf2f7;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .option:hover {
+            background: #e2e8f0;
+            border-color: #1e3a5f;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 1rem;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .result {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5f7c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .result p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Page Styles */
+        .profile-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5f7c 100%);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .profile-info h3 {
+            color: #1e3a5f;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info p {
+            color: #718096;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card h4 {
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p {
+            color: #4a5568;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+        }
+
+        /* Hidden class for page switching */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="app-wrapper"><!-- Header -->
+   <header>
+    <div class="header-content">
+     <div class="logo">
+      <div class="logo-icon">
+       📊
+      </div>
+      <div class="logo-text">
+       <h1 id="siteTitle">Ekonomi SMA</h1>
+       <p id="siteTagline">Platform Pembelajaran Interaktif</p>
+      </div>
+     </div>
+     <nav>
+      <ul>
+       <li><a href="#" class="nav-link active" data-page="home">Beranda</a></li>
+       <li><a href="#" class="nav-link" data-page="materi">Materi</a></li>
+       <li><a href="#" class="nav-link" data-page="latihan">Latihan Soal</a></li>
+       <li><a href="#" class="nav-link" data-page="tentang">Tentang</a></li>
+      </ul>
+     </nav>
+    </div>
+   </header><!-- Home Page -->
+   <div id="home" class="page active"><!-- Hero Section -->
+    <section class="hero">
+     <div class="hero-content">
+      <h2 id="welcomeTitle">Selamat Datang di Platform Pembelajaran Ekonomi</h2>
+      <p id="welcomeText">Pelajari konsep ekonomi SMA dengan cara yang interaktif, menyenangkan, dan mudah dipahami</p>
+      <div class="cta-buttons"><a href="#" class="btn btn-primary nav-link" data-page="materi">Mulai Belajar</a> <a href="#" class="btn btn-secondary nav-link" data-page="latihan">Coba Latihan Soal</a>
+      </div>
+     </div>
+    </section><!-- Features Section -->
+    <section class="features">
+     <div class="features-content">
+      <h2 class="section-title">Fitur Unggulan</h2>
+      <div class="features-grid">
+       <div class="feature-card">
+        <div class="feature-icon">
+         📚
+        </div>
+        <h3>Materi Lengkap</h3>
+        <p>Materi ekonomi kelas X-XII yang disusun sistematis sesuai kurikulum nasional</p>
+       </div>
+       <div class="feature-card">
+        <div class="feature-icon">
+         ✍️
+        </div>
+        <h3>Latihan Soal</h3>
+        <p>Ratusan soal pilihan ganda dengan pembahasan untuk mengasah pemahaman</p>
+       </div>
+       <div class="feature-card">
+        <div class="feature-icon">
+         📊
+        </div>
+        <h3>Evaluasi Otomatis</h3>
+        <p>Sistem penilaian otomatis yang memberikan feedback instan</p>
+       </div>
+       <div class="feature-card">
+        <div class="feature-icon">
+         📱
+        </div>
+        <h3>Akses Fleksibel</h3>
+        <p>Belajar kapan saja dan di mana saja melalui perangkat apapun</p>
+       </div>
+       <div class="feature-card">
+        <div class="feature-icon">
+         🎯
+        </div>
+        <h3>Pembelajaran Terarah</h3>
+        <p>Materi disusun bertahap dari konsep dasar hingga lanjutan</p>
+       </div>
+       <div class="feature-card">
+        <div class="feature-icon">
+         💡
+        </div>
+        <h3>Interaktif</h3>
+        <p>Pembelajaran dengan pendekatan visual dan contoh nyata</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Materials Preview -->
+    <section class="materials-preview">
+     <div class="materials-content">
+      <h2 class="section-title">Topik Materi</h2>
+      <div class="materials-grid">
+       <div class="material-card">
+        <h4>Pengantar Ekonomi</h4>
+        <p>Memahami konsep dasar ilmu ekonomi dan peranannya dalam kehidupan</p>
+       </div>
+       <div class="material-card">
+        <h4>Sistem Ekonomi</h4>
+        <p>Mengenal berbagai sistem ekonomi yang berlaku di dunia</p>
+       </div>
+       <div class="material-card">
+        <h4>Pasar &amp; Harga</h4>
+        <p>Memahami mekanisme pasar dan pembentukan harga</p>
+       </div>
+       <div class="material-card">
+        <h4>Badan Usaha</h4>
+        <p>Mempelajari jenis-jenis badan usaha dan karakteristiknya</p>
+       </div>
+       <div class="material-card">
+        <h4>APBN &amp; APBD</h4>
+        <p>Memahami anggaran pendapatan dan belanja negara/daerah</p>
+       </div>
+       <div class="material-card">
+        <h4>Perbankan</h4>
+        <p>Mengenal sistem perbankan dan bank sentral</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Stats Section -->
+    <section class="stats">
+     <div class="stats-content">
+      <h2 class="section-title">Statistik Platform</h2>
+      <div class="stats-grid">
+       <div class="stat-item">
+        <h3>10+</h3>
+        <p>Materi Pembelajaran</p>
+       </div>
+       <div class="stat-item">
+        <h3>15</h3>
+        <p>Soal Latihan Berkualitas</p>
+       </div>
+       <div class="stat-item">
+        <h3>3</h3>
+        <p>Tingkat Kesulitan</p>
+       </div>
+       <div class="stat-item">
+        <h3>24/7</h3>
+        <p>Akses Belajar</p>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div><!-- Materi Page -->
+   <div id="materi" class="page">
+    <div class="page-content">
+     <h2>Materi Pembelajaran Ekonomi</h2>
+     <div class="materi-list">
+      <div class="materi-item">
+       <h3>1. Pengantar Ekonomi</h3>
+       <p><strong>Definisi Ekonomi:</strong> Ekonomi adalah ilmu yang mempelajari perilaku manusia dalam memilih dan menciptakan kemakmuran. Kata ekonomi berasal dari bahasa Yunani "oikonomia" yang berarti pengelolaan rumah tangga.</p>
+       <p><strong>Masalah Pokok Ekonomi:</strong></p>
+       <ul>
+        <li><strong>What (Apa):</strong> Barang dan jasa apa yang akan diproduksi dan berapa jumlahnya? Misalnya: apakah akan memproduksi beras atau jagung?</li>
+        <li><strong>How (Bagaimana):</strong> Bagaimana cara memproduksi barang dan jasa? Teknologi apa yang digunakan? Apakah menggunakan mesin modern atau tenaga manusia?</li>
+        <li><strong>For Whom (Untuk Siapa):</strong> Untuk siapa barang dan jasa diproduksi? Siapa yang berhak menikmati hasilnya?</li>
+       </ul>
+       <p><strong>Prinsip Ekonomi:</strong> Dengan pengorbanan tertentu memperoleh hasil maksimal, atau dengan pengorbanan sekecil-kecilnya memperoleh hasil tertentu. Contoh: Ibu membeli sayuran di pasar yang harganya lebih murah dengan kualitas yang sama.</p>
+       <p><strong>Motif Ekonomi:</strong></p>
+       <ul>
+        <li>Motif mencari keuntungan (profit motive)</li>
+        <li>Motif memenuhi kebutuhan</li>
+        <li>Motif memperoleh penghargaan</li>
+        <li>Motif memperoleh kekuasaan</li>
+        <li>Motif sosial (membantu sesama)</li>
+       </ul>
+       <p><strong>Pembagian Ilmu Ekonomi:</strong></p>
+       <ul>
+        <li><strong>Ekonomi Deskriptif:</strong> Menggambarkan keadaan ekonomi yang sebenarnya terjadi</li>
+        <li><strong>Teori Ekonomi:</strong> Penjelasan tentang hubungan sebab akibat dalam kegiatan ekonomi (Ekonomi Mikro dan Makro)</li>
+        <li><strong>Ekonomi Terapan:</strong> Penerapan teori ekonomi dalam kebijakan</li>
+       </ul>
+      </div>
+      <div class="materi-item">
+       <h3>2. Kebutuhan, Kelangkaan, dan Pilihan</h3>
+       <p><strong>Kebutuhan Manusia:</strong> Kebutuhan adalah keinginan manusia terhadap barang dan jasa yang harus dipenuhi. Jika tidak dipenuhi akan mempengaruhi kelangsungan hidup.</p>
+       <p><strong>Jenis Kebutuhan Berdasarkan Intensitas:</strong></p>
+       <ul>
+        <li><strong>Kebutuhan Primer:</strong> Kebutuhan yang harus dipenuhi agar manusia dapat hidup layak. Contoh: makanan, pakaian, tempat tinggal, kesehatan, pendidikan.</li>
+        <li><strong>Kebutuhan Sekunder:</strong> Kebutuhan pelengkap setelah kebutuhan primer terpenuhi. Contoh: sepeda motor, televisi, kulkas, meja, kursi.</li>
+        <li><strong>Kebutuhan Tersier:</strong> Kebutuhan untuk kemewahan, dipenuhi setelah primer dan sekunder terpenuhi. Contoh: mobil mewah, perhiasan emas, liburan ke luar negeri.</li>
+       </ul>
+       <p><strong>Jenis Kebutuhan Berdasarkan Sifat:</strong></p>
+       <ul>
+        <li><strong>Kebutuhan Jasmani:</strong> Untuk kesehatan fisik (makanan, olahraga, istirahat)</li>
+        <li><strong>Kebutuhan Rohani:</strong> Untuk kepuasan batin (ibadah, rekreasi, hiburan)</li>
+       </ul>
+       <p><strong>Faktor yang Mempengaruhi Kebutuhan:</strong></p>
+       <ul>
+        <li>Kondisi alam dan lingkungan</li>
+        <li>Peradaban dan kemajuan teknologi</li>
+        <li>Agama dan kepercayaan</li>
+        <li>Adat istiadat</li>
+        <li>Pendidikan dan pekerjaan</li>
+       </ul>
+       <p><strong>Kelangkaan (Scarcity):</strong> Kondisi dimana alat pemuas kebutuhan jumlahnya terbatas, sedangkan kebutuhan manusia tidak terbatas. Ini adalah masalah ekonomi utama yang dihadapi semua masyarakat.</p>
+       <p><strong>Biaya Peluang (Opportunity Cost):</strong> Nilai atau manfaat terbaik yang dikorbankan ketika memilih suatu alternatif. Contoh: Jika kamu memiliki Rp 50.000 dan memilih nonton bioskop, maka biaya peluangnya adalah membeli buku yang tidak jadi kamu beli.</p>
+       <p><strong>Skala Prioritas:</strong> Urutan kebutuhan dari yang paling penting hingga yang dapat ditunda, disesuaikan dengan kemampuan dan pendapatan. Contoh skala prioritas siswa:</p>
+       <ul>
+        <li>1. Membayar uang sekolah</li>
+        <li>2. Membeli buku pelajaran</li>
+        <li>3. Membeli seragam sekolah</li>
+        <li>4. Membeli alat tulis</li>
+        <li>5. Uang jajan</li>
+       </ul>
+      </div>
+      <div class="materi-item">
+       <h3>3. Sistem Ekonomi</h3>
+       <p><strong>Definisi:</strong> Sistem ekonomi adalah cara suatu negara atau masyarakat mengatur dan mengelola faktor-faktor produksi untuk mencapai kemakmuran.</p>
+       <p><strong>1. Sistem Ekonomi Tradisional</strong></p>
+       <ul>
+        <li><strong>Ciri-ciri:</strong> Masih terikat tradisi dan adat istiadat, teknologi sederhana, bersifat kekeluargaan</li>
+        <li><strong>Kelebihan:</strong> Tidak ada persaingan yang tidak sehat, kekerabatan dan kegotongroyalan tinggi</li>
+        <li><strong>Kekurangan:</strong> Produktivitas rendah, sulit berkembang, kualitas barang rendah</li>
+        <li><strong>Contoh:</strong> Masyarakat pedalaman, suku-suku terpencil</li>
+       </ul>
+       <p><strong>2. Sistem Ekonomi Komando/Terpusat</strong></p>
+       <ul>
+        <li><strong>Ciri-ciri:</strong> Semua alat produksi dikuasai negara, tidak ada hak milik individu, kegiatan ekonomi diatur pemerintah</li>
+        <li><strong>Kelebihan:</strong> Pemerataan pendapatan, tidak ada kesenjangan ekonomi, mudah mengendalikan inflasi</li>
+        <li><strong>Kekurangan:</strong> Hak milik individu tidak diakui, potensi dan kreativitas masyarakat tidak berkembang, sering terjadi monopoli</li>
+        <li><strong>Contoh:</strong> Korea Utara, Kuba</li>
+       </ul>
+       <p><strong>3. Sistem Ekonomi Pasar/Liberal</strong></p>
+       <ul>
+        <li><strong>Ciri-ciri:</strong> Setiap individu bebas berusaha, hak milik perorangan diakui, persaingan bebas, campur tangan pemerintah minimal</li>
+        <li><strong>Kelebihan:</strong> Mendorong pertumbuhan ekonomi cepat, kualitas barang tinggi, efisien karena persaingan</li>
+        <li><strong>Kekurangan:</strong> Kesenjangan ekonomi tinggi, eksploitasi SDM, monopoli oleh pemilik modal besar</li>
+        <li><strong>Contoh:</strong> Amerika Serikat, Inggris</li>
+       </ul>
+       <p><strong>4. Sistem Ekonomi Campuran</strong></p>
+       <ul>
+        <li><strong>Ciri-ciri:</strong> Gabungan sistem pasar dan komando, pemerintah dan swasta berperan dalam ekonomi</li>
+        <li><strong>Kelebihan:</strong> Sektor vital dikuasai pemerintah, hak individu diakui tapi ada batasnya</li>
+        <li><strong>Contoh:</strong> Prancis, Malaysia, Singapura</li>
+       </ul>
+       <p><strong>5. Sistem Ekonomi Pancasila (Indonesia)</strong></p>
+       <ul>
+        <li><strong>Landasan:</strong> Berdasarkan UUD 1945 Pasal 33</li>
+        <li><strong>Ciri-ciri:</strong> Kekeluargaan dan gotong royong, cabang produksi penting dikuasai negara, perekonomian disusun sebagai usaha bersama</li>
+        <li><strong>Prinsip:</strong> Kemanusiaan, nasionalisme ekonomi, demokrasi ekonomi, keadilan sosial</li>
+        <li><strong>Bentuk usaha:</strong> BUMN, BUMS, Koperasi (sebagai sokoguru perekonomian)</li>
+       </ul>
+      </div>
+      <div class="materi-item">
+       <h3>4. Pasar dan Mekanisme Harga</h3>
+       <p><strong>Definisi Pasar:</strong> Pasar adalah tempat bertemunya penjual dan pembeli untuk melakukan transaksi jual beli barang dan jasa. Pasar tidak harus berupa tempat fisik, bisa juga virtual (online).</p>
+       <p><strong>Fungsi Pasar:</strong></p>
+       <ul>
+        <li><strong>Fungsi Distribusi:</strong> Menyalurkan barang dari produsen ke konsumen</li>
+        <li><strong>Fungsi Pembentukan Harga:</strong> Tempat bertemunya permintaan dan penawaran</li>
+        <li><strong>Fungsi Promosi:</strong> Memperkenalkan produk baru kepada konsumen</li>
+       </ul>
+       <p><strong>Jenis-jenis Pasar:</strong></p>
+       <ul>
+        <li><strong>Pasar Barang:</strong> Memperjualbelikan barang konsumsi (pasar tradisional, supermarket)</li>
+        <li><strong>Pasar Jasa:</strong> Memperjualbelikan jasa (salon, bengkel, rumah sakit)</li>
+        <li><strong>Pasar Uang:</strong> Memperjualbelikan mata uang (valuta asing)</li>
+        <li><strong>Pasar Modal:</strong> Tempat jual beli surat berharga jangka panjang (saham, obligasi)</li>
+        <li><strong>Pasar Tenaga Kerja:</strong> Tempat permintaan dan penawaran tenaga kerja</li>
+       </ul>
+       <p><strong>Hukum Permintaan:</strong> Jika harga naik, maka jumlah barang yang diminta turun (ceteris paribus = faktor lain tetap). Contoh: Harga beras naik dari Rp 12.000 menjadi Rp 15.000, pembeli mengurangi pembelian beras.</p>
+       <p><strong>Hukum Penawaran:</strong> Jika harga naik, maka jumlah barang yang ditawarkan naik. Contoh: Harga cabai naik, petani berlomba menanam cabai lebih banyak.</p>
+       <p><strong>Faktor yang Mempengaruhi Permintaan:</strong></p>
+       <ul>
+        <li>Harga barang itu sendiri</li>
+        <li>Harga barang lain (substitusi dan komplementer)</li>
+        <li>Pendapatan konsumen</li>
+        <li>Selera konsumen</li>
+        <li>Jumlah penduduk</li>
+        <li>Ekspektasi harga di masa depan</li>
+       </ul>
+       <p><strong>Faktor yang Mempengaruhi Penawaran:</strong></p>
+       <ul>
+        <li>Harga barang itu sendiri</li>
+        <li>Biaya produksi</li>
+        <li>Teknologi produksi</li>
+        <li>Harga barang lain</li>
+        <li>Tujuan perusahaan</li>
+        <li>Ekspektasi produsen</li>
+       </ul>
+       <p><strong>Keseimbangan Pasar:</strong> Terjadi ketika jumlah yang diminta sama dengan jumlah yang ditawarkan (Qd = Qs). Pada titik ini terbentuk harga keseimbangan (equilibrium price).</p>
+       <p><strong>Elastisitas Permintaan:</strong> Tingkat kepekaan perubahan jumlah barang yang diminta terhadap perubahan harga.</p>
+       <ul>
+        <li><strong>Elastis (E &gt; 1):</strong> Perubahan harga menyebabkan perubahan permintaan yang lebih besar. Contoh: barang mewah</li>
+        <li><strong>Inelastis (E &lt; 1):</strong> Perubahan harga tidak terlalu mempengaruhi permintaan. Contoh: beras, garam</li>
+        <li><strong>Uniter (E = 1):</strong> Perubahan harga sama dengan perubahan permintaan</li>
+       </ul>
+      </div>
+      <div class="materi-item">
+       <h3>5. Badan Usaha</h3>
+       <p><strong>Definisi:</strong> Badan usaha adalah kesatuan yuridis dan ekonomis yang menggunakan faktor produksi untuk menghasilkan barang dan jasa dengan tujuan mencari keuntungan.</p>
+       <p><strong>A. BADAN USAHA MILIK NEGARA (BUMN)</strong></p>
+       <p><strong>1. Perusahaan Umum (Perum)</strong></p>
+       <ul>
+        <li>Modal seluruhnya milik negara, tidak terbagi atas saham</li>
+        <li>Bertujuan melayani kepentingan umum sekaligus mencari keuntungan</li>
+        <li>Dipimpin oleh direksi dan diawasi dewan pengawas</li>
+        <li>Contoh: Perum DAMRI, Perum Perumnas</li>
+       </ul>
+       <p><strong>2. Perusahaan Perseroan (Persero)</strong></p>
+       <ul>
+        <li>Modal berbentuk saham, sebagian atau seluruhnya milik negara</li>
+        <li>Tujuan utama mencari keuntungan</li>
+        <li>Status hukum: Perseroan Terbatas</li>
+        <li>Contoh: PT Bank Mandiri, PT PLN, PT Pertamina, PT Telkom</li>
+       </ul>
+       <p><strong>B. BADAN USAHA MILIK SWASTA (BUMS)</strong></p>
+       <p><strong>1. Perusahaan Perseorangan</strong></p>
+       <ul>
+        <li>Dimiliki dan dikelola satu orang</li>
+        <li>Modal terbatas, tanggung jawab tidak terbatas</li>
+        <li>Keuntungan dan kerugian ditanggung sendiri</li>
+        <li>Contoh: toko kelontong, warung makan</li>
+       </ul>
+       <p><strong>2. Firma (Fa)</strong></p>
+       <ul>
+        <li>Persekutuan dua orang atau lebih dengan nama bersama</li>
+        <li>Tanggung jawab tidak terbatas dan solidier (bersama)</li>
+        <li>Setiap anggota dapat bertindak atas nama firma</li>
+        <li>Contoh: Firma Dagang Maju Jaya</li>
+       </ul>
+       <p><strong>3. Persekutuan Komanditer (CV)</strong></p>
+       <ul>
+        <li>Terdiri dari sekutu aktif (komplementer) dan sekutu pasif (komanditer)</li>
+        <li>Sekutu aktif: mengelola perusahaan, tanggung jawab tidak terbatas</li>
+        <li>Sekutu pasif: hanya menyetor modal, tanggung jawab terbatas pada modal</li>
+        <li>Contoh: CV Karya Mandiri</li>
+       </ul>
+       <p><strong>4. Perseroan Terbatas (PT)</strong></p>
+       <ul>
+        <li>Modal terbagi atas saham-saham</li>
+        <li>Tanggung jawab terbatas pada modal yang disetor</li>
+        <li>Pemilik disebut pemegang saham</li>
+        <li>Dipimpin direksi, diawasi komisaris, pemilik adalah RUPS</li>
+        <li>Ada PT Terbuka (Tbk) yang sahamnya diperjualbelikan di bursa</li>
+        <li>Contoh: PT Unilever Indonesia Tbk, PT Indofood</li>
+       </ul>
+       <p><strong>C. KOPERASI</strong></p>
+       <ul>
+        <li>Badan usaha beranggotakan orang atau badan hukum koperasi</li>
+        <li>Melandaskan kegiatannya pada prinsip koperasi</li>
+        <li>Gerakan ekonomi rakyat berdasar asas kekeluargaan</li>
+        <li>Tujuan: mensejahterakan anggota dan masyarakat</li>
+        <li>Berlandaskan Pancasila dan UUD 1945</li>
+       </ul>
+       <p><strong>Peran Badan Usaha dalam Perekonomian:</strong></p>
+       <ul>
+        <li>Menyediakan barang dan jasa untuk masyarakat</li>
+        <li>Menyerap tenaga kerja dan mengurangi pengangguran</li>
+        <li>Meningkatkan kualitas sumber daya manusia</li>
+        <li>Sumber penerimaan negara melalui pajak</li>
+        <li>Meningkatkan pertumbuhan ekonomi</li>
+       </ul>
+      </div>
+      <div class="materi-item">
+       <h3>6. APBN dan APBD</h3>
+       <p><strong>Definisi APBN:</strong> Anggaran Pendapatan dan Belanja Negara adalah rencana keuangan tahunan pemerintahan negara Indonesia yang disetujui oleh DPR. APBN berlaku untuk satu tahun anggaran (1 Januari - 31 Desember).</p>
+       <p><strong>Definisi APBD:</strong> Anggaran Pendapatan dan Belanja Daerah adalah rencana keuangan tahunan pemerintahan daerah (provinsi/kabupaten/kota) yang disetujui oleh DPRD.</p>
+       <p><strong>Fungsi APBN/APBD:</strong></p>
+       <ul>
+        <li><strong>Fungsi Alokasi:</strong> Mengalokasikan sumber daya untuk kepentingan publik</li>
+        <li><strong>Fungsi Distribusi:</strong> Mendistribusikan pendapatan agar lebih merata</li>
+        <li><strong>Fungsi Stabilisasi:</strong> Menjaga stabilitas ekonomi dan keseimbangan makro</li>
+        <li><strong>Fungsi Otorisasi:</strong> Dasar untuk melaksanakan pendapatan dan belanja</li>
+        <li><strong>Fungsi Perencanaan:</strong> Pedoman dalam merencanakan kegiatan</li>
+        <li><strong>Fungsi Pengawasan:</strong> Pedoman untuk menilai kegiatan pemerintah</li>
+       </ul>
+       <p><strong>Struktur APBN - PENDAPATAN NEGARA:</strong></p>
+       <ul>
+        <li><strong>Penerimaan Perpajakan:</strong>
+         <ul>
+          <li>Pajak Dalam Negeri: PPh, PPN, PPnBM, PBB, Bea Meterai</li>
+          <li>Pajak Perdagangan Internasional: Bea Masuk, Bea Keluar</li>
+         </ul></li>
+        <li><strong>Penerimaan Negara Bukan Pajak (PNBP):</strong>
+         <ul>
+          <li>Penerimaan SDA: migas, pertambangan umum, kehutanan, perikanan</li>
+          <li>Bagian laba BUMN</li>
+          <li>Pendapatan layanan umum</li>
+          <li>Denda dan sitaan</li>
+         </ul></li>
+        <li><strong>Hibah:</strong> Bantuan tidak mengikat dari dalam/luar negeri</li>
+       </ul>
+       <p><strong>Struktur APBN - BELANJA NEGARA:</strong></p>
+       <ul>
+        <li><strong>Belanja Pemerintah Pusat:</strong>
+         <ul>
+          <li>Belanja pegawai (gaji PNS, TNI, Polri)</li>
+          <li>Belanja barang</li>
+          <li>Belanja modal (infrastruktur)</li>
+          <li>Pembayaran bunga utang</li>
+          <li>Subsidi (BBM, listrik, pupuk)</li>
+          <li>Belanja sosial (bantuan sosial)</li>
+         </ul></li>
+        <li><strong>Transfer ke Daerah dan Dana Desa:</strong>
+         <ul>
+          <li>Dana Alokasi Umum (DAU)</li>
+          <li>Dana Alokasi Khusus (DAK)</li>
+          <li>Dana Bagi Hasil (DBH)</li>
+          <li>Dana Desa</li>
+         </ul></li>
+       </ul>
+       <p><strong>Kebijakan Anggaran:</strong></p>
+       <ul>
+        <li><strong>Anggaran Surplus:</strong> Pendapatan &gt; Belanja. Digunakan saat ekonomi memanas (inflasi tinggi)</li>
+        <li><strong>Anggaran Defisit:</strong> Pendapatan &lt; Belanja. Digunakan untuk merangsang pertumbuhan ekonomi. Ditutupi dengan utang</li>
+        <li><strong>Anggaran Berimbang:</strong> Pendapatan = Belanja. Jarang diterapkan dalam praktik</li>
+       </ul>
+       <p><strong>Proses Penyusunan APBN:</strong></p>
+       <ul>
+        <li>1. Presiden menyusun Rancangan APBN bersama menteri terkait</li>
+        <li>2. Presiden menyampaikan RAPBN kepada DPR (paling lambat bulan Agustus)</li>
+        <li>3. DPR membahas dan memberikan persetujuan</li>
+        <li>4. Presiden menetapkan APBN menjadi UU APBN</li>
+        <li>5. Pemerintah melaksanakan APBN sepanjang tahun</li>
+        <li>6. Pemerintah menyusun laporan pertanggungjawaban</li>
+       </ul>
+       <p><strong>Hubungan APBN dengan Kesejahteraan:</strong> APBN yang baik akan mendorong pembangunan infrastruktur, pendidikan, kesehatan, dan program sosial yang meningkatkan kualitas hidup masyarakat.</p>
+      </div>
+      <div class="materi-item">
+       <h3>7. Bank Sentral dan Sistem Perbankan</h3>
+       <p><strong>Bank Sentral Indonesia (Bank Indonesia):</strong> Bank Indonesia adalah lembaga negara yang independen dalam melaksanakan tugas dan wewenangnya, bebas dari campur tangan pemerintah dan pihak lain. Dibentuk berdasarkan UU No. 23 Tahun 1999 yang telah diubah dengan UU No. 6 Tahun 2009.</p>
+       <p><strong>Tujuan Bank Indonesia:</strong> Mencapai dan memelihara kestabilan nilai rupiah. Kestabilan nilai rupiah meliputi:</p>
+       <ul>
+        <li>Kestabilan terhadap harga barang dan jasa (inflasi rendah)</li>
+        <li>Kestabilan terhadap mata uang negara lain (nilai tukar stabil)</li>
+       </ul>
+       <p><strong>Tugas Bank Indonesia:</strong></p>
+       <ul>
+        <li><strong>1. Menetapkan dan melaksanakan kebijakan moneter</strong>
+         <ul>
+          <li>Mengendalikan jumlah uang beredar</li>
+          <li>Menjaga stabilitas rupiah</li>
+          <li>Mengendalikan inflasi</li>
+         </ul></li>
+        <li><strong>2. Mengatur dan menjaga kelancaran sistem pembayaran</strong>
+         <ul>
+          <li>Mengatur sistem transfer dana</li>
+          <li>Mengatur alat pembayaran (cash dan non-cash)</li>
+          <li>Menyelenggarakan sistem kliring</li>
+         </ul></li>
+        <li><strong>3. Mengatur dan mengawasi perbankan</strong> (sejak 2013 dilimpahkan ke OJK) 
+         <ul>
+          <li>Memberikan izin usaha bank</li>
+          <li>Mengawasi kegiatan perbankan</li>
+         </ul></li>
+       </ul>
+       <p><strong>Instrumen Kebijakan Moneter:</strong></p>
+       <ul>
+        <li><strong>1. BI 7-Day Reverse Repo Rate (BI7DRR):</strong> Suku bunga acuan Bank Indonesia. Jika BI rate naik, suku bunga kredit naik, orang cenderung menabung, uang beredar berkurang.</li>
+        <li><strong>2. Operasi Pasar Terbuka (OPT):</strong> BI membeli/menjual Surat Berharga Negara (SBN) di pasar untuk mengendalikan jumlah uang beredar.</li>
+        <li><strong>3. Giro Wajib Minimum (GWM):</strong> Cadangan minimum yang harus dipelihara bank dalam bentuk saldo rekening giro di BI. Jika GWM naik, kemampuan bank memberikan kredit berkurang.</li>
+        <li><strong>4. Fasilitas Diskonto:</strong> Memberikan pinjaman kepada bank yang mengalami kesulitan likuiditas jangka pendek.</li>
+        <li><strong>5. Himbauan Moral (Moral Suasion):</strong> BI menghimbau bank untuk membatasi/meningkatkan kredit sesuai kondisi ekonomi.</li>
+       </ul>
+       <p><strong>Jenis-jenis Bank:</strong></p>
+       <ul>
+        <li><strong>Berdasarkan Fungsi:</strong>
+         <ul>
+          <li>Bank Sentral (Bank Indonesia)</li>
+          <li>Bank Umum (Bank Mandiri, BCA, BRI)</li>
+          <li>Bank Perkreditan Rakyat (BPR)</li>
+         </ul></li>
+        <li><strong>Berdasarkan Kepemilikan:</strong>
+         <ul>
+          <li>Bank Pemerintah (BUMN: BRI, BNI, Mandiri, BTN)</li>
+          <li>Bank Swasta (BCA, CIMB Niaga, Permata)</li>
+          <li>Bank Asing (HSBC, Citibank, Standard Chartered)</li>
+          <li>Bank Campuran (ANZ Panin, OCBC NISP)</li>
+         </ul></li>
+        <li><strong>Berdasarkan Prinsip Operasional:</strong>
+         <ul>
+          <li>Bank Konvensional (berdasarkan bunga)</li>
+          <li>Bank Syariah (berdasarkan prinsip bagi hasil)</li>
+         </ul></li>
+       </ul>
+       <p><strong>Produk dan Layanan Perbankan:</strong></p>
+       <ul>
+        <li><strong>Produk Simpanan:</strong> Tabungan, Deposito, Giro</li>
+        <li><strong>Produk Kredit:</strong> Kredit konsumtif, kredit produktif, kredit investasi</li>
+        <li><strong>Layanan Jasa:</strong> Transfer, kliring, inkaso, safe deposit box, kartu kredit/debit, ATM, internet banking, mobile banking</li>
+       </ul>
+       <p><strong>Otoritas Jasa Keuangan (OJK):</strong> Lembaga independen yang mengatur dan mengawasi sektor jasa keuangan (perbankan, pasar modal, asuransi, dana pensiun, lembaga pembiayaan). Dibentuk tahun 2011 berdasarkan UU No. 21 Tahun 2011.</p>
+      </div>
+      <div class="materi-item">
+       <h3>8. Koperasi</h3>
+       <p><strong>Definisi:</strong> Koperasi adalah badan usaha yang beranggotakan orang-seorang atau badan hukum koperasi dengan melandaskan kegiatannya berdasarkan prinsip koperasi sekaligus sebagai gerakan ekonomi rakyat yang berdasar atas asas kekeluargaan. (UU No. 25 Tahun 1992)</p>
+       <p><strong>Landasan Koperasi Indonesia:</strong></p>
+       <ul>
+        <li><strong>Landasan Idiil:</strong> Pancasila (terutama sila ke-2 dan ke-5)</li>
+        <li><strong>Landasan Struktural:</strong> UUD 1945 Pasal 33 Ayat 1</li>
+        <li><strong>Landasan Gerak:</strong> UU No. 25 Tahun 1992 tentang Perkoperasian</li>
+        <li><strong>Landasan Mental:</strong> Setia kawan dan kesadaran berpribadi</li>
+       </ul>
+       <p><strong>Prinsip-Prinsip Koperasi:</strong></p>
+       <ul>
+        <li><strong>1. Keanggotaan bersifat sukarela dan terbuka:</strong> Tidak ada paksaan, terbuka untuk semua yang memenuhi syarat</li>
+        <li><strong>2. Pengelolaan dilakukan secara demokratis:</strong> Satu anggota satu suara (one man one vote), tidak peduli modal</li>
+        <li><strong>3. Pembagian SHU dilakukan secara adil:</strong> Sesuai besarnya jasa/transaksi anggota dengan koperasi</li>
+        <li><strong>4. Pemberian balas jasa terbatas terhadap modal:</strong> Bunga modal tidak terlalu besar</li>
+        <li><strong>5. Kemandirian:</strong> Koperasi bersikap mandiri dan tidak bergantung pada pihak lain</li>
+        <li><strong>6. Pendidikan perkoperasian:</strong> Memberikan pendidikan kepada anggota</li>
+        <li><strong>7. Kerjasama antar koperasi:</strong> Membangun jaringan dengan koperasi lain</li>
+       </ul>
+       <p><strong>Jenis-Jenis Koperasi:</strong></p>
+       <ul>
+        <li><strong>1. Koperasi Konsumsi:</strong> Menyediakan barang kebutuhan sehari-hari untuk anggota. Contoh: Koperasi karyawan yang menjual sembako</li>
+        <li><strong>2. Koperasi Simpan Pinjam (KSP):</strong> Melayani anggota untuk menabung dan meminjam dengan bunga ringan. Contoh: Credit Union (CU)</li>
+        <li><strong>3. Koperasi Produksi:</strong> Membantu anggota memproduksi dan memasarkan barang. Contoh: Koperasi pengrajin batik</li>
+        <li><strong>4. Koperasi Jasa:</strong> Memberikan jasa kepada anggota. Contoh: koperasi angkutan, koperasi asuransi</li>
+        <li><strong>5. Koperasi Serba Usaha (KSU):</strong> Menjalankan lebih dari satu usaha (gabungan)</li>
+       </ul>
+       <p><strong>Perangkat Organisasi Koperasi:</strong></p>
+       <ul>
+        <li><strong>1. Rapat Anggota Tahunan (RAT):</strong>
+         <ul>
+          <li>Pemegang kekuasaan tertinggi</li>
+          <li>Menetapkan AD/ART, memilih/memberhentikan pengurus</li>
+          <li>Mengesahkan laporan pertanggungjawaban dan rencana kerja</li>
+          <li>Menetapkan pembagian SHU</li>
+         </ul></li>
+        <li><strong>2. Pengurus:</strong>
+         <ul>
+          <li>Dipilih dari dan oleh anggota dalam RAT</li>
+          <li>Masa jabatan maksimal 5 tahun</li>
+          <li>Tugas: mengelola koperasi, mengurus organisasi, mewakili koperasi</li>
+          <li>Terdiri dari: Ketua, Sekretaris, Bendahara</li>
+         </ul></li>
+        <li><strong>3. Pengawas:</strong>
+         <ul>
+          <li>Dipilih dari dan oleh anggota dalam RAT</li>
+          <li>Tugas: mengawasi pelaksanaan kebijakan dan pengelolaan koperasi</li>
+          <li>Membuat laporan tertulis tentang hasil pengawasan</li>
+         </ul></li>
+       </ul>
+       <p><strong>Modal Koperasi:</strong></p>
+       <ul>
+        <li><strong>Modal Sendiri:</strong> Simpanan pokok, simpanan wajib, dana cadangan, hibah</li>
+        <li><strong>Modal Pinjaman:</strong> Dari anggota, koperasi lain, bank, sumber lain yang sah</li>
+       </ul>
+       <p><strong>Sisa Hasil Usaha (SHU):</strong> Pendapatan koperasi yang diperoleh dalam satu tahun dikurangi biaya, penyusutan, dan kewajiban lainnya termasuk pajak.</p>
+       <p><strong>Pembagian SHU:</strong></p>
+       <ul>
+        <li>Dana cadangan (25-30%)</li>
+        <li>Jasa anggota (40-50%) - dibagi sesuai transaksi</li>
+        <li>Jasa modal (10-15%) - dibagi sesuai simpanan</li>
+        <li>Jasa pengurus dan pengawas (10-15%)</li>
+        <li>Dana pendidikan (5-10%)</li>
+        <li>Dana sosial dan lain-lain</li>
+       </ul>
+       <p><strong>Keunggulan Koperasi:</strong></p>
+       <ul>
+        <li>Demokratis dan menghargai HAM</li>
+        <li>Berorientasi pada kesejahteraan anggota</li>
+        <li>Menjunjung tinggi kebersamaan</li>
+        <li>Mendapat perlindungan dan pembinaan pemerintah</li>
+       </ul>
+      </div>
+      <div class="materi-item">
+       <h3>9. Inflasi</h3>
+       <p><strong>Definisi:</strong> Inflasi adalah kenaikan harga barang dan jasa secara umum dan terus menerus dalam jangka waktu tertentu. Inflasi menyebabkan menurunnya nilai mata uang dan daya beli masyarakat.</p>
+       <p><strong>Contoh:</strong> Tahun 2020 harga beras Rp 10.000/kg, tahun 2021 menjadi Rp 11.000/kg, tahun 2022 menjadi Rp 12.500/kg. Ini menunjukkan adanya inflasi.</p>
+       <p><strong>Jenis Inflasi Berdasarkan Tingkat Keparahan:</strong></p>
+       <ul>
+        <li><strong>Inflasi Ringan:</strong> Kenaikan harga di bawah 10% per tahun. Dianggap normal dan masih bisa dikendalikan.</li>
+        <li><strong>Inflasi Sedang:</strong> Kenaikan harga 10-30% per tahun. Mulai mengganggu perekonomian.</li>
+        <li><strong>Inflasi Berat:</strong> Kenaikan harga 30-100% per tahun. Sangat mengganggu perekonomian.</li>
+        <li><strong>Hiperinflasi:</strong> Kenaikan harga di atas 100% per tahun. Kondisi sangat parah, ekonomi hancur.</li>
+       </ul>
+       <p><strong>Jenis Inflasi Berdasarkan Penyebab:</strong></p>
+       <ul>
+        <li><strong>1. Demand-Pull Inflation (Inflasi Tarikan Permintaan):</strong>
+         <ul>
+          <li>Terjadi karena permintaan agregat melebihi penawaran agregat</li>
+          <li>Orang punya uang banyak, berebut barang yang terbatas</li>
+          <li>Contoh: Menjelang Lebaran, permintaan sembako meningkat tajam, harga naik</li>
+         </ul></li>
+        <li><strong>2. Cost-Push Inflation (Inflasi Dorongan Biaya):</strong>
+         <ul>
+          <li>Terjadi karena kenaikan biaya produksi</li>
+          <li>Kenaikan harga bahan baku, upah, BBM membuat harga jual naik</li>
+          <li>Contoh: Harga BBM naik, ongkos angkut naik, harga barang ikut naik</li>
+         </ul></li>
+       </ul>
+       <p><strong>Jenis Inflasi Berdasarkan Asal:</strong></p>
+       <ul>
+        <li><strong>Inflasi Domestik:</strong> Berasal dari dalam negeri (defisit APBN, kenaikan gaji PNS)</li>
+        <li><strong>Inflasi Impor:</strong> Berasal dari luar negeri (kenaikan harga minyak dunia)</li>
+       </ul>
+       <p><strong>Penyebab Inflasi:</strong></p>
+       <ul>
+        <li>Jumlah uang beredar terlalu banyak (money supply berlebih)</li>
+        <li>Kenaikan biaya produksi (upah, bahan baku, energi)</li>
+        <li>Permintaan melebihi penawaran</li>
+        <li>Defisit anggaran negara yang ditutup dengan mencetak uang</li>
+        <li>Kenaikan harga barang impor</li>
+        <li>Ekspektasi inflasi di masa depan</li>
+       </ul>
+       <p><strong>Dampak Inflasi:</strong></p>
+       <ul>
+        <li><strong>Dampak Positif:</strong>
+         <ul>
+          <li>Inflasi ringan mendorong pertumbuhan ekonomi</li>
+          <li>Produsen terdorong meningkatkan produksi</li>
+          <li>Meningkatkan kesempatan kerja</li>
+         </ul></li>
+        <li><strong>Dampak Negatif:</strong>
+         <ul>
+          <li>Menurunkan daya beli masyarakat</li>
+          <li>Nilai uang menurun</li>
+          <li>Merugikan penabung (bunga lebih kecil dari inflasi)</li>
+          <li>Menguntungkan peminjam (nilai utang riil menurun)</li>
+          <li>Menurunkan minat investasi</li>
+          <li>Mengurangi ekspor (harga jual mahal)</li>
+          <li>Kesenjangan sosial meningkat</li>
+         </ul></li>
+       </ul>
+       <p><strong>Cara Mengatasi Inflasi:</strong></p>
+       <ul>
+        <li><strong>1. Kebijakan Moneter (Bank Sentral):</strong>
+         <ul>
+          <li>Menaikkan BI rate (suku bunga acuan) agar orang menabung</li>
+          <li>Menaikkan GWM (Giro Wajib Minimum) agar kredit berkurang</li>
+          <li>Operasi Pasar Terbuka: menjual SBN untuk menyerap uang beredar</li>
+          <li>Kebijakan uang ketat (tight money policy)</li>
+         </ul></li>
+        <li><strong>2. Kebijakan Fiskal (Pemerintah):</strong>
+         <ul>
+          <li>Mengurangi pengeluaran pemerintah</li>
+          <li>Menaikkan tarif pajak untuk mengurangi daya beli</li>
+          <li>Mengatur defisit anggaran</li>
+         </ul></li>
+        <li><strong>3. Kebijakan Non-Moneter/Fiskal:</strong>
+         <ul>
+          <li>Meningkatkan produksi dan produktivitas</li>
+          <li>Menetapkan harga maksimum</li>
+          <li>Operasi pasar untuk menstabilkan harga</li>
+          <li>Distribusi barang lancar</li>
+         </ul></li>
+       </ul>
+       <p><strong>Pengukuran Inflasi:</strong> Inflasi diukur dengan Indeks Harga Konsumen (IHK) atau Consumer Price Index (CPI). Di Indonesia diumumkan setiap bulan oleh BPS.</p>
+      </div>
+      <div class="materi-item">
+       <h3>10. Pertumbuhan dan Pembangunan Ekonomi</h3>
+       <p><strong>Definisi Pertumbuhan Ekonomi:</strong> Pertumbuhan ekonomi adalah proses kenaikan output per kapita dalam jangka panjang. Ukuran utamanya adalah peningkatan Produk Domestik Bruto (PDB) riil dari tahun ke tahun.</p>
+       <p><strong>Definisi Pembangunan Ekonomi:</strong> Pembangunan ekonomi adalah proses perubahan yang terus menerus menuju perbaikan, termasuk usaha meningkatkan pendapatan per kapita dan mengurangi kemiskinan. Lebih luas dari pertumbuhan ekonomi.</p>
+       <p><strong>Perbedaan Pertumbuhan dan Pembangunan Ekonomi:</strong></p>
+       <ul>
+        <li><strong>Pertumbuhan Ekonomi:</strong>
+         <ul>
+          <li>Fokus pada aspek kuantitatif (angka PDB)</li>
+          <li>Proses kenaikan output/produksi</li>
+          <li>Bersifat jangka pendek</li>
+          <li>Indikator utama: PDB, PNB</li>
+         </ul></li>
+        <li><strong>Pembangunan Ekonomi:</strong>
+         <ul>
+          <li>Fokus pada aspek kualitatif (kesejahteraan, pemerataan)</li>
+          <li>Proses perubahan struktur ekonomi dan sosial</li>
+          <li>Bersifat jangka panjang</li>
+          <li>Indikator: IPM, angka kemiskinan, gini ratio</li>
+         </ul></li>
+       </ul>
+       <p><strong>Indikator Pertumbuhan Ekonomi:</strong></p>
+       <ul>
+        <li><strong>PDB (Produk Domestik Bruto):</strong> Nilai seluruh barang dan jasa yang diproduksi di dalam negeri dalam satu tahun</li>
+        <li><strong>PNB (Produk Nasional Bruto):</strong> PDB + Pendapatan neto dari luar negeri</li>
+        <li><strong>PDB per Kapita:</strong> PDB dibagi jumlah penduduk, menunjukkan pendapatan rata-rata</li>
+        <li><strong>Laju Pertumbuhan Ekonomi:</strong> Persentase kenaikan PDB dari tahun ke tahun</li>
+       </ul>
+       <p><strong>Faktor yang Mempengaruhi Pertumbuhan Ekonomi:</strong></p>
+       <ul>
+        <li><strong>1. Sumber Daya Alam (SDA):</strong> Negara kaya SDA berpotensi tumbuh cepat jika dikelola baik</li>
+        <li><strong>2. Sumber Daya Manusia (SDM):</strong> Kualitas tenaga kerja (pendidikan, keterampilan, kesehatan)</li>
+        <li><strong>3. Sumber Daya Modal:</strong> Investasi dalam mesin, pabrik, infrastruktur</li>
+        <li><strong>4. Teknologi:</strong> Kemajuan teknologi meningkatkan produktivitas</li>
+        <li><strong>5. Kewirausahaan:</strong> Kemampuan mengelola faktor produksi secara efisien</li>
+        <li><strong>6. Stabilitas Politik dan Keamanan:</strong> Kondisi stabil menarik investasi</li>
+       </ul>
+       <p><strong>Teori Pertumbuhan Ekonomi:</strong></p>
+       <ul>
+        <li><strong>1. Teori Klasik (Adam Smith):</strong>
+         <ul>
+          <li>Pertumbuhan ekonomi dipengaruhi spesialisasi dan pembagian kerja</li>
+          <li>Invisible hand (mekanisme pasar) akan mengatur ekonomi</li>
+          <li>Pemerintah tidak perlu campur tangan (laissez faire)</li>
+         </ul></li>
+        <li><strong>2. Teori Harrod-Domar:</strong>
+         <ul>
+          <li>Investasi berperan penting dalam pertumbuhan ekonomi</li>
+          <li>Investasi → Kapasitas produksi meningkat → Output meningkat</li>
+          <li>Rumus: g = s/k (g=pertumbuhan, s=tabungan, k=rasio modal-output)</li>
+         </ul></li>
+        <li><strong>3. Teori Solow:</strong>
+         <ul>
+          <li>Pertumbuhan ekonomi bersumber dari: modal, tenaga kerja, teknologi</li>
+          <li>Teknologi adalah kunci pertumbuhan jangka panjang</li>
+          <li>Ada konsep steady state (keseimbangan pertumbuhan)</li>
+         </ul></li>
+        <li><strong>4. Teori Schumpeter:</strong>
+         <ul>
+          <li>Inovasi dan entrepreneur adalah motor pertumbuhan</li>
+          <li>Creative destruction: teknologi baru menggantikan yang lama</li>
+         </ul></li>
+       </ul>
+       <p><strong>Indikator Pembangunan Ekonomi:</strong></p>
+       <ul>
+        <li><strong>1. Indeks Pembangunan Manusia (IPM/HDI):</strong>
+         <ul>
+          <li>Mengukur: kesehatan (angka harapan hidup), pendidikan (lama sekolah), standar hidup (pendapatan)</li>
+          <li>Nilai 0-100, semakin tinggi semakin baik</li>
+         </ul></li>
+        <li><strong>2. Angka Kemiskinan:</strong> Persentase penduduk di bawah garis kemiskinan</li>
+        <li><strong>3. Tingkat Pengangguran:</strong> Persentase angkatan kerja yang menganggur</li>
+        <li><strong>4. Gini Ratio:</strong> Mengukur ketimpangan pendapatan (0-1, mendekati 0 = merata)</li>
+        <li><strong>5. Tingkat Melek Huruf:</strong> Persentase penduduk yang bisa baca tulis</li>
+       </ul>
+       <p><strong>Strategi Pembangunan Ekonomi Indonesia:</strong></p>
+       <ul>
+        <li><strong>1. Pembangunan Infrastruktur:</strong> Jalan tol, pelabuhan, bandara untuk konektivitas</li>
+        <li><strong>2. Peningkatan SDM:</strong> Program pendidikan dan pelatihan vokasi</li>
+        <li><strong>3. Industrialisasi:</strong> Mengembangkan industri manufaktur untuk nilai tambah</li>
+        <li><strong>4. Ekonomi Kerakyatan:</strong> Memberdayakan UMKM dan koperasi</li>
+        <li><strong>5. Investasi Asing:</strong> Menarik FDI (Foreign Direct Investment)</li>
+        <li><strong>6. Ekonomi Digital:</strong> Mendorong startup dan e-commerce</li>
+        <li><strong>7. Pemerataan Pembangunan:</strong> Mengurangi kesenjangan antar wilayah</li>
+       </ul>
+       <p><strong>Tantangan Pembangunan Indonesia:</strong></p>
+       <ul>
+        <li>Kesenjangan ekonomi antar daerah (Jawa vs Luar Jawa)</li>
+        <li>Ketergantungan pada ekspor komoditas mentah</li>
+        <li>Kualitas SDM masih rendah</li>
+        <li>Birokrasi yang masih rumit</li>
+        <li>Korupsi</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div><!-- Latihan Page -->
+   <div id="latihan" class="page">
+    <div class="page-content">
+     <h2>Latihan Soal Ekonomi</h2>
+     <p style="color: #718096; margin-bottom: 2rem;">Uji pemahamanmu dengan 15 soal pilihan ganda tingkat analisis dan evaluasi (C1-C3). Klik "Cek Hasil" untuk melihat skor kamu!</p>
+     <div class="quiz-container" id="quizContainer"><!-- Questions will be generated here -->
+     </div>
+     <div class="quiz-buttons"><button class="btn btn-primary" id="submitQuiz">Cek Hasil</button> <button class="btn btn-secondary" id="resetQuiz">Ulangi Quiz</button>
+     </div>
+     <div class="result" id="result">
+      <h3>Hasil Quiz</h3>
+      <p id="scoreText"></p>
+      <p id="feedbackText"></p>
+     </div>
+    </div>
+   </div><!-- Tentang Page -->
+   <div id="tentang" class="page">
+    <div class="page-content">
+     <h2>Tentang Platform</h2>
+     <div class="profile-card">
+      <div class="profile-avatar">
+       👨‍🏫
+      </div>
+      <div class="profile-info">
+       <h3>Platform Pembelajaran Ekonomi SMA</h3>
+       <p>Media pembelajaran digital interaktif yang dirancang khusus untuk siswa SMA dalam mempelajari mata pelajaran Ekonomi kelas X sampai XII.</p>
+       <p>Platform ini dikembangkan dengan tujuan memberikan pengalaman belajar yang lebih menarik, interaktif, dan mudah dipahami melalui kombinasi materi terstruktur, latihan soal, dan evaluasi otomatis.</p>
+       <p><strong>Visi:</strong> Menjadi platform pembelajaran ekonomi terdepan yang membantu siswa SMA mencapai pemahaman optimal.</p>
+       <p><strong>Misi:</strong> Menyediakan materi berkualitas, latihan soal beragam, dan pengalaman belajar yang menyenangkan.</p>
+      </div>
+     </div>
+     <h2 style="margin-top: 3rem; margin-bottom: 2rem;">Informasi Kontak</h2>
+     <div class="contact-info">
+      <div class="contact-card">
+       <h4>📧 Email</h4>
+       <p>ashrofulardiansyah05@gmail.com</p>
+      </div>
+      <div class="contact-card">
+       <h4>📱 WhatsApp</h4>
+       <p>+62 (Silakan hubungi via email)</p>
+      </div>
+      <div class="contact-card">
+       <h4>🏫 Kelas</h4>
+       <p>X - XII SMA</p>
+      </div>
+      <div class="contact-card">
+       <h4>🌐 Platform</h4>
+       <p>Web-Based Learning</p>
+      </div>
+     </div>
+     <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border-radius: 12px;">
+      <h3 style="color: #667eea; margin-bottom: 1rem;">Teknologi yang Digunakan</h3>
+      <p style="color: #4a5568; line-height: 1.8;">Platform ini dibangun menggunakan teknologi web modern: HTML5 untuk struktur konten, CSS3 dengan Google Fonts (Poppins) untuk desain responsif dan menarik, serta JavaScript untuk interaktivitas dan evaluasi otomatis. Semua teknologi ini dipilih untuk memberikan pengalaman belajar yang optimal di berbagai perangkat.</p>
+     </div>
+    </div>
+   </div><!-- Footer -->
+   <footer>
+    <div class="footer-content">
+     <div class="footer-section">
+      <h3>Ekonomi SMA</h3>
+      <p>Platform pembelajaran ekonomi interaktif untuk siswa SMA kelas X-XII. Belajar ekonomi dengan cara yang menyenangkan dan efektif.</p>
+     </div>
+     <div class="footer-section">
+      <h3>Menu</h3>
+      <ul>
+       <li><a href="#" class="nav-link" data-page="home">Beranda</a></li>
+       <li><a href="#" class="nav-link" data-page="materi">Materi</a></li>
+       <li><a href="#" class="nav-link" data-page="latihan">Latihan Soal</a></li>
+       <li><a href="#" class="nav-link" data-page="tentang">Tentang</a></li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h3>Kontak</h3>
+      <p>📧 ashrofulardiansyah05@gmail.com</p>
+      <p>📱 Hubungi via Email</p>
+      <p>🏫 Untuk Siswa SMA Kelas X-XII</p>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p id="footerText">© 2024 Ekonomi SMA. Media Pembelajaran Digital Berbasis Web</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+        const defaultConfig = {
+            site_title: "Ekonomi SMA",
+            site_tagline: "Platform Pembelajaran Interaktif",
+            welcome_title: "Selamat Datang di Platform Pembelajaran Ekonomi",
+            welcome_text: "Pelajari konsep ekonomi SMA dengan cara yang interaktif, menyenangkan, dan mudah dipahami",
+            footer_text: "© 2024 Ekonomi SMA. Media Pembelajaran Digital Berbasis Web"
+        };
+
+        // Quiz questions - 15 soal tingkat C1-C3 (Menganalisis, Mengevaluasi, Mencipta)
+        const quizQuestions = [
+            {
+                question: "Seorang petani memiliki lahan yang bisa ditanami padi atau jagung. Jika ia memilih menanam padi dengan keuntungan Rp 10 juta, sedangkan menanam jagung bisa menghasilkan Rp 15 juta. Berapakah biaya peluang dari keputusan menanam padi?",
+                options: [
+                    "Rp 10 juta",
+                    "Rp 15 juta",
+                    "Rp 25 juta",
+                    "Rp 5 juta"
+                ],
+                correct: 1
+            },
+            {
+                question: "Mengapa dalam sistem ekonomi Pancasila, koperasi dianggap sebagai soko guru perekonomian Indonesia? Analisislah alasan yang paling tepat!",
+                options: [
+                    "Karena koperasi menghasilkan keuntungan paling besar",
+                    "Karena koperasi mencerminkan asas kekeluargaan dan gotong royong sesuai nilai Pancasila",
+                    "Karena koperasi dimiliki oleh pemerintah",
+                    "Karena koperasi tidak memiliki pesaing"
+                ],
+                correct: 1
+            },
+            {
+                question: "Jika pemerintah menaikkan pajak dan mengurangi belanja negara secara bersamaan, kebijakan apakah yang sedang diterapkan dan apa dampaknya terhadap inflasi?",
+                options: [
+                    "Kebijakan fiskal ekspansif, inflasi akan naik",
+                    "Kebijakan fiskal kontraktif, inflasi akan turun",
+                    "Kebijakan moneter ekspansif, inflasi akan naik",
+                    "Kebijakan moneter kontraktif, inflasi akan turun"
+                ],
+                correct: 1
+            },
+            {
+                question: "Bank Indonesia menaikkan BI rate dari 5% menjadi 6%. Bagaimana dampak kebijakan ini terhadap jumlah uang beredar dan kegiatan ekonomi?",
+                options: [
+                    "Uang beredar bertambah, kegiatan ekonomi meningkat",
+                    "Uang beredar berkurang, kegiatan ekonomi melambat",
+                    "Uang beredar tetap, kegiatan ekonomi meningkat",
+                    "Uang beredar bertambah, kegiatan ekonomi melambat"
+                ],
+                correct: 1
+            },
+            {
+                question: "Dalam struktur APBN, jika pendapatan negara Rp 2.000 triliun dan belanja negara Rp 2.300 triliun, maka kondisi anggaran dan solusinya adalah...",
+                options: [
+                    "Surplus Rp 300 triliun, harus mengurangi belanja",
+                    "Defisit Rp 300 triliun, dapat ditutup dengan utang atau obligasi",
+                    "Berimbang, tidak perlu tindakan khusus",
+                    "Defisit Rp 300 triliun, harus mencetak uang baru"
+                ],
+                correct: 1
+            },
+            {
+                question: "Evaluasilah mengapa PT lebih banyak dipilih untuk bisnis berskala besar dibandingkan dengan CV atau Firma!",
+                options: [
+                    "Karena PT mudah didirikan dan biaya murah",
+                    "Karena PT memiliki tanggung jawab terbatas dan mudah mengumpulkan modal melalui saham",
+                    "Karena PT tidak memerlukan izin pemerintah",
+                    "Karena PT hanya membutuhkan satu orang pemilik"
+                ],
+                correct: 1
+            },
+            {
+                question: "Harga beras bulan lalu Rp 12.000/kg, bulan ini Rp 13.200/kg. Berapa tingkat inflasi beras dan termasuk kategori inflasi apa dalam setahun jika tren ini berlanjut?",
+                options: [
+                    "10% per bulan, akan menjadi inflasi hiperinflasi (120% per tahun)",
+                    "10% per bulan, akan menjadi inflasi berat (120% per tahun)",
+                    "1% per bulan, akan menjadi inflasi ringan (12% per tahun)",
+                    "10% per tahun, termasuk inflasi ringan"
+                ],
+                correct: 1
+            },
+            {
+                question: "Jika permintaan kopi meningkat 40% ketika harga turun 20%, maka elastisitas permintaan kopi adalah...",
+                options: [
+                    "Inelastis (E < 1) karena perubahan harga kecil",
+                    "Elastis (E > 1) karena perubahan permintaan lebih besar dari perubahan harga",
+                    "Uniter (E = 1) karena perubahan sama",
+                    "Inelastis sempurna karena kebutuhan pokok"
+                ],
+                correct: 1
+            },
+            {
+                question: "Analisislah perbedaan utama antara pertumbuhan ekonomi dan pembangunan ekonomi dari segi fokus dan indikator!",
+                options: [
+                    "Pertumbuhan fokus pada PDB, pembangunan fokus pada kesejahteraan dan IPM",
+                    "Pertumbuhan fokus pada kesejahteraan, pembangunan fokus pada PDB",
+                    "Keduanya sama-sama fokus pada PDB",
+                    "Keduanya sama-sama fokus pada kesejahteraan"
+                ],
+                correct: 0
+            },
+            {
+                question: "Seorang pengusaha ingin memulai bisnis dengan modal terbatas dan tanggung jawab tidak terbatas. Bentuk badan usaha yang paling sesuai adalah...",
+                options: [
+                    "PT karena mudah mendapat modal",
+                    "Koperasi karena ada bantuan pemerintah",
+                    "Perusahaan Perseorangan karena modal terbatas dan pengelolaan sendiri",
+                    "Firma karena bisa berbagi tanggung jawab"
+                ],
+                correct: 2
+            },
+            {
+                question: "Dalam RAT Koperasi, SHU sebesar Rp 100 juta akan dibagi. Jika 40% untuk jasa anggota dan Budi bertransaksi Rp 5 juta dari total transaksi Rp 50 juta, berapa bagian SHU Budi dari jasa anggota?",
+                options: [
+                    "Rp 2 juta",
+                    "Rp 4 juta",
+                    "Rp 5 juta",
+                    "Rp 10 juta"
+                ],
+                correct: 1
+            },
+            {
+                question: "Mengapa inflasi cost-push lebih sulit diatasi dibandingkan inflasi demand-pull?",
+                options: [
+                    "Karena pemerintah tidak bisa mengendalikan biaya produksi eksternal seperti harga minyak dunia",
+                    "Karena permintaan tidak bisa dikurangi",
+                    "Karena inflasi cost-push lebih ringan",
+                    "Karena tidak ada dampak pada ekonomi"
+                ],
+                correct: 0
+            },
+            {
+                question: "Jika nilai tukar rupiah melemah dari Rp 14.000/USD menjadi Rp 15.000/USD, bagaimana dampaknya terhadap ekspor dan impor Indonesia?",
+                options: [
+                    "Ekspor menurun karena harga naik, impor meningkat karena harga turun",
+                    "Ekspor meningkat karena harga kompetitif, impor menurun karena harga mahal",
+                    "Tidak ada dampak pada ekspor dan impor",
+                    "Ekspor dan impor sama-sama menurun"
+                ],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara paling efektif bagi Indonesia untuk meningkatkan pertumbuhan ekonomi jangka panjang berdasarkan teori Solow?",
+                options: [
+                    "Menambah jumlah tenaga kerja sebanyak-banyaknya",
+                    "Meningkatkan investasi dalam teknologi dan pendidikan SDM",
+                    "Mengurangi impor barang luar negeri",
+                    "Mencetak uang lebih banyak"
+                ],
+                correct: 1
+            },
+            {
+                question: "Evaluasilah mengapa Indonesia menerapkan sistem ekonomi Pancasila bukan sistem ekonomi liberal murni!",
+                options: [
+                    "Karena sistem liberal tidak menguntungkan",
+                    "Karena sistem Pancasila sesuai nilai kekeluargaan, melindungi cabang produksi penting, dan mencegah eksploitasi",
+                    "Karena pemerintah ingin menguasai semua sektor ekonomi",
+                    "Karena rakyat Indonesia tidak mampu bersaing"
+                ],
+                correct: 1
+            }
+        ];
+
+        let userAnswers = new Array(quizQuestions.length).fill(null);
+
+        // Initialize quiz
+        function initQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+            
+            quizQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <h3>Soal ${index + 1}</h3>
+                    <p>${q.question}</p>
+                    <div class="options">
+                        ${q.options.map((option, optIndex) => `
+                            <label class="option">
+                                <input type="radio" name="q${index}" value="${optIndex}" 
+                                    onchange="saveAnswer(${index}, ${optIndex})">
+                                ${option}
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+        }
+
+        // Save answer
+        function saveAnswer(questionIndex, answerIndex) {
+            userAnswers[questionIndex] = answerIndex;
+        }
+
+        // Submit quiz
+        function submitQuiz() {
+            let score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizQuestions[index].correct) {
+                    score++;
+                }
+            });
+
+            const percentage = (score / quizQuestions.length) * 100;
+            const resultDiv = document.getElementById('result');
+            const scoreText = document.getElementById('scoreText');
+            const feedbackText = document.getElementById('feedbackText');
+
+            scoreText.textContent = `Skor Anda: ${score} dari ${quizQuestions.length} (${percentage.toFixed(0)}%)`;
+
+            if (percentage >= 80) {
+                feedbackText.textContent = "Luar biasa! Anda sangat memahami materi ekonomi. Pertahankan!";
+            } else if (percentage >= 60) {
+                feedbackText.textContent = "Bagus! Anda cukup memahami materi. Terus tingkatkan pemahaman Anda.";
+            } else {
+                feedbackText.textContent = "Tetap semangat! Pelajari kembali materi dan coba lagi.";
+            }
+
+            resultDiv.classList.add('show');
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Reset quiz
+        function resetQuiz() {
+            userAnswers = new Array(quizQuestions.length).fill(null);
+            document.getElementById('result').classList.remove('show');
+            initQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Page navigation
+        function switchPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageName).classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-page="${pageName}"]`).forEach(link => {
+                link.classList.add('active');
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            initQuiz();
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = e.target.getAttribute('data-page');
+                    switchPage(page);
+                });
+            });
+
+            document.getElementById('submitQuiz').addEventListener('click', submitQuiz);
+            document.getElementById('resetQuiz').addEventListener('click', resetQuiz);
+
+
+        });
+
+        // Element SDK implementation
+        async function onConfigChange(config) {
+            document.getElementById('siteTitle').textContent = config.site_title || defaultConfig.site_title;
+            document.getElementById('siteTagline').textContent = config.site_tagline || defaultConfig.site_tagline;
+            document.getElementById('welcomeTitle').textContent = config.welcome_title || defaultConfig.welcome_title;
+            document.getElementById('welcomeText').textContent = config.welcome_text || defaultConfig.welcome_text;
+            document.getElementById('footerText').textContent = config.footer_text || defaultConfig.footer_text;
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig: defaultConfig,
+                onConfigChange: onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [],
+                    borderables: [],
+                    fontEditable: undefined,
+                    fontSizeable: undefined
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["site_title", config.site_title || defaultConfig.site_title],
+                    ["site_tagline", config.site_tagline || defaultConfig.site_tagline],
+                    ["welcome_title", config.welcome_title || defaultConfig.welcome_title],
+                    ["welcome_text", config.welcome_text || defaultConfig.welcome_text],
+                    ["footer_text", config.footer_text || defaultConfig.footer_text]
+                ])
+            });
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ab97d75c449aa09',t:'MTc2NTMzNTYwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
